@@ -20,10 +20,13 @@ namespace ClientUpd8.Models
     [Required]
     public string State { get; set; }
 
+    [Required]
     public string City { get; set; }
 
-    public DateTime Birthdate { get; set; }
+    [Required]
+    public string Birthdate { get; set; }
 
+    [Required]
     public string Gender { get; set; }
 
     [Required]

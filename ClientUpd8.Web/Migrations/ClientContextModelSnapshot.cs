@@ -33,8 +33,9 @@ namespace ClientUpd8.Web.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<DateTime>("Birthdate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Birthdate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .IsRequired()

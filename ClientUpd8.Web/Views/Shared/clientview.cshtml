@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Cpf</th>
+  </tr>
+
+  @foreach (var item in ViewBag.Client)
+  {
+    <tr>
+      <td>
+        @item.Name;
+      </td>
+      <td>
+        @item.Cpf;
+      </td>
+    </tr>
+  }
+</table>

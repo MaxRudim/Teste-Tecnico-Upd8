@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ClientUpd8.Models;
 using ClientUpd8.Repository;
+using ClientUpd8.Middlewares;
+using System.Globalization;
 // using ClientUpd8.Middlewares;
 
 namespace ClientUpd8.Controllers;
@@ -16,28 +18,7 @@ public class ClientController : Controller
         _repository = repository;
     }
 
-    // [HttpPost("Authentication")]
-    // public async Task<IActionResult> Authenticate([FromBody] LoginData loginData)
-    // {
-
-    //     try
-    //     {
-    //         var candidate = await _repository.GetByCpf(loginData.Cpf);
-
-    //         if (candidate is null) throw new InvalidOperationException("O candidato não existe");
-    //         if(candidate.Password != loginData.Password) throw new InvalidOperationException("Senha inválida");
-    //         var token = new TokenGenerator().Generate(candidate);
-    //         candidate.Password = "";
-    //         return Ok(new {token, candidate});
-    //     }
-    //     catch (InvalidOperationException ex)
-    //     {
-    //         return BadRequest(ex.Message);
-    //     }
-    // }
-
     [HttpPost()]
-    // [AllowAnonymous]
     public async Task<IActionResult> CreateClient([FromBody] Client client)
     {
         try
@@ -45,20 +26,25 @@ public class ClientController : Controller
             var clientExist = await _repository.GetByCpf(client.Cpf);
             if (clientExist is not null) throw new InvalidOperationException("Este cliente já existe");
 
-            // var validCpf = ValidaCPF.IsCpf(client.Cpf);
-            // if (validCpf == false) throw new InvalidOperationException("Cpf inválido");
+            var validBirthDate = DateTime.Parse(client.Birthdate, new CultureInfo("pt-BR", false));
+
+            var validCpf = ValidaCPF.IsCpf(client.Cpf);
+            if (validCpf == false) throw new InvalidOperationException("Cpf inválido");
 
             var output = await _repository.Add(client);
             return CreatedAtAction("GetClient", new { id = output.ClientId }, output);
         }
         catch (InvalidOperationException ex)
         {
-            return BadRequest(ex.Message);
+          return BadRequest(ex.Message);
+        }
+        catch(FormatException)
+        {
+          return BadRequest("Formato de data inválido! Tente dd-mm-aaaa.");
         }
     }
 
     [HttpDelete("{id}")]
-    // [Authorize]
     public async Task<IActionResult> DeleteClient(Guid id)
     {
         try
@@ -79,12 +65,11 @@ public class ClientController : Controller
     public async Task<IActionResult> ClientView()
     {
       var clientList = await _repository.GetAll();
-      ViewBag.candidate = clientList;
+      ViewBag.client = clientList;
       return View();
     }
     
     [HttpGet()]
-    // [Authorize]
     public async Task<IActionResult> GetAllClients()
     {
         try
@@ -101,7 +86,6 @@ public class ClientController : Controller
     }
     
     [HttpGet("{id}")]
-    // [Authorize]
     public async Task<IActionResult> GetClient(string id)
     {
         try
@@ -118,7 +102,6 @@ public class ClientController : Controller
     }
 
     [HttpPut()]
-    // [Authorize]
     public async Task<IActionResult> UpdateClient([FromBody] Client client)
     {
         try
