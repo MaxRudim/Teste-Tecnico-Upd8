@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yR/dY9k+Qa34XasjlHETbWzS8oPU1o9Czv/lvkNrXmU6rm4/ZtRElUVc6+wJNJp1PVfSNyAnee1gtrV7Wc5cxg==",
+  "dgSpecHash": "ckKtZgP9ZdNrgqzNgxYLVwYfT9FHQ4AFKKboXiNlEdFN7+cjFWzszI2urI25bUgtQ737JwI4JU13EKtORZOt6w==",
   "success": true,
   "projectFilePath": "/home/max/Documentos/teste-tecnico-upd8/ClientUpd8.Web/ClientUpd8.Web.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,8 @@
     "/home/max/.nuget/packages/microsoft.extensions.dependencyinjection/6.0.1/microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.extensions.fileproviders.abstractions/2.2.0/microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
+    "/home/max/.nuget/packages/microsoft.extensions.fileproviders.physical/2.2.0/microsoft.extensions.fileproviders.physical.2.2.0.nupkg.sha512",
+    "/home/max/.nuget/packages/microsoft.extensions.filesystemglobbing/2.2.0/microsoft.extensions.filesystemglobbing.2.2.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.extensions.hosting.abstractions/2.2.0/microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.extensions.logging/6.0.0/microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
@@ -52,6 +54,7 @@
     "/home/max/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/max/.nuget/packages/microsoft.visualstudio.web.browserlink/2.2.0/microsoft.visualstudio.web.browserlink.2.2.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
     "/home/max/.nuget/packages/microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "/home/max/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

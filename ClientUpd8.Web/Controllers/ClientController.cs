@@ -1,10 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ClientUpd8.Models;
 using ClientUpd8.Repository;
 using ClientUpd8.Middlewares;
 using System.Globalization;
-// using ClientUpd8.Middlewares;
 
 namespace ClientUpd8.Controllers;
 
@@ -75,7 +73,7 @@ public class ClientController : Controller
         try
         {
             var clients = await _repository.GetAll();
-            if (clients == null) throw new InvalidOperationException("Não existem clientes cadastrados");
+            if (!clients.Any()) throw new InvalidOperationException("Não existem clientes cadastrados");
 
             return Ok(clients);
         }
@@ -109,8 +107,6 @@ public class ClientController : Controller
             var clientExist = await _repository.Get(client.ClientId);
             if (clientExist == null) throw new InvalidOperationException("O cliente não existe");
 
-            // clientExist.Cpf = client.Cpf;  -- Cpf não pode ser alterado.
-            // clientExist.BirthDate = client.BirthDate;  -- BirthDate não pode ser alterado.
             clientExist.Address = client.Address;
             clientExist.City = client.City;
             clientExist.State = client.State;

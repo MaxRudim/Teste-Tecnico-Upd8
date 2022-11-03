@@ -1,9 +1,14 @@
 <table>
   <tr>
     <th>Nome</th>
+    <th>Endereço</th>
+    <th>Estado</th>
+    <th>Cidade</th>
+    <th>Data de nascimento</th>
+    <th>Sexo</th>
     <th>Cpf</th>
   </tr>
-
+  <h3>Lista de clientes</h3>
   @foreach (var item in ViewBag.Client)
   {
     <tr>
@@ -11,7 +16,32 @@
         @item.Name;
       </td>
       <td>
-        @item.Cpf;
+        @item.Address;
+      </td>
+      <td>
+        @item.State;
+      </td>
+      <td>
+        @item.City;
+      </td>
+      <td>
+        @item.Birthdate;
+      </td>
+      <td>
+        @item.Gender;
+      </td>
+      <td>
+        @item.Cpf  
+      </td>
+      <td>
+        <button>
+          Editar
+        </button>
+      </td>
+      <td>
+        <button>
+          Excluir
+        </button>
       </td>
     </tr>
   }
