@@ -74,4 +74,4 @@ Para acessar os views do aplicativo, basta seguir a rota: `https://localhost:726
 
 Este projeto foi realizado utilizando testes com xUnit. Para rodar os testes, basta entrar na pasta `ClientUpd8.Test` e, sem estar com o aplicativo rodando (dê um ctrl + c no terminal caso o dotnet run esteja em execução), utilize o comando: `dotnet test`.
 
-## Agradeço a oportunidade ;D
+## Agradeço a oportunidade!!
